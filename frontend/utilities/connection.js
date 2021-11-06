@@ -15,11 +15,20 @@ function connection(){
   }, []);
 
   function listenMessage(){
-    socket.current.on(NEW_CHAT_MESSAGE_EVENT, (msg) => {setMessages(msg)});
+    socket.current.on(NEW_CHAT_MESSAGE_EVENT, (msg) => {
+      setMessages(msg);
+      var container = document.getElementById('container');
+      var heightPage = container.scrollHeight;
+      console.log(container.scrollTop, heightPage);
+      if(container.scrollTop > heightPage - 700){
+        container.scrollTo(0 , heightPage);
+      }
+    });
   }
 
   function sendMessage(msg){
-      socket.current.emit(NEW_CHAT_MESSAGE_EVENT, msg);
+    socket.current.emit(NEW_CHAT_MESSAGE_EVENT, msg);
+    
   }
 
   return { messages, sendMessage, listenMessage };

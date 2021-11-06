@@ -1,4 +1,4 @@
-import { Messages, Container, Main, Form, StyledP } from "./styles"
+import { Messages, Container, Main, Form, StyledP, StyledButton, StyledInput } from "./styles"
 import {useState, useEffect } from "react"
 import connection from '../../utilities/connection'
 
@@ -13,10 +13,12 @@ export default function Chat(){
     async function handleSendMessage(e){
         e.preventDefault();
         try {
-            const name = localStorage.getItem('name') || 'inválido';
-            const id = localStorage.getItem('id') || 0;
-            sendMessage({name: name, message: message, id: id})
-            setMessage('');
+            if(message){
+                const name = localStorage.getItem('name') || 'inválido';
+                const id = localStorage.getItem('id') || 0;
+                sendMessage({name: name, message: message, id: id})
+                setMessage('');
+            }
         } catch (error) {
             console.log(error);
             alert('Erro ao enviar mensagem!');
@@ -34,8 +36,8 @@ export default function Chat(){
     return(
         <>
         <Main>
-            <h1>Chat:</h1>
-            <Container>
+            <h1>CHAT</h1>
+            <Container id='container'>
                 {messages.map((e, i) => (
                     <Messages Position={checkId(e.id)} key={i}>
                         <StyledP Color={checkId(e.id)}>
@@ -47,8 +49,8 @@ export default function Chat(){
                 )}
             </Container>
             <Form>
-                <input value={message || ''} onChange={ e => setMessage(e.target.value)} type='text' placeholder='Digite sua mensagem'></input>
-                <button type='submit' onClick={handleSendMessage}>Enviar</button>
+                <StyledInput value={message || ''} onChange={ e => setMessage(e.target.value)} type='text' placeholder='Digite sua mensagem'></StyledInput>
+                <StyledButton type='submit' onClick={handleSendMessage}>Enviar</StyledButton>
             </Form>
         </Main>
         </>
