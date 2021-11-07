@@ -1,4 +1,4 @@
-import { FormLogin } from "./styles"
+import { FormLogin } from "../utilities/styles.js"
 import {useRouter} from "next/router"
 import { useState } from "react"
 import {getRandomInt} from '../utilities/utilities'
