@@ -1,7 +1,6 @@
 import { Messages, Container, Main, Form, StyledP, StyledButton, StyledInput } from "../../utilities/chat/styles"
 import {useState, useEffect } from "react"
 import connection from '../../utilities/connection'
-import { StylesGlobal } from "../../utilities/globalStyles"
 
 const Chat = () => {
     const [message, setMessage] = useState();

@@ -2,7 +2,6 @@ import { FormLogin } from "../utilities/styles.js"
 import {useRouter} from "next/router"
 import { useState } from "react"
 import {getRandomInt} from '../utilities/utilities'
-import { StylesGlobal } from "../utilities/globalStyles.js"
 
 export default function Login() {
   const [name, setName] = useState(undefined);
@@ -25,13 +24,11 @@ export default function Login() {
 
   return (
     <>
-    <StylesGlobal>
       <FormLogin onSubmit={Login}>
         <h1>INSIRA SUAS INFORMAÇÕES ABAIXO</h1>
         <input value={name || ''} onChange={e => setName(e.target.value)} id='nome' type='text' placeholder='Digite seu nome'></input>
         <button type='submit'>Entrar</button>
       </FormLogin>
-    </StylesGlobal>
     </>   
   )
 }
