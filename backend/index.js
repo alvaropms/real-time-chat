@@ -14,7 +14,7 @@ const io = new Server(server, {
 const connection = require('./connection');
 
 app.get('/', (req, res) => {
-  res.send('<h1>Hello world</h1>');
+  res.send(`<h1>Hello world. Starting on port ${process.env.PORT || connection.PORT}</h1>`);
 });
 
 const NEW_CHAT_MESSAGE_EVENT = 'newMessage';
