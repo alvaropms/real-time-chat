@@ -5,8 +5,8 @@
     "node": "14.x"
   },
   "scripts": {
-    "dev": "env-cmd -f .env.local next dev",
-    "build": "env-cmd -f .env.local next build",
+    "dev": "next dev",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
