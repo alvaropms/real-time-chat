@@ -25,7 +25,7 @@ export default function Login() {
   return (
     <>
     <FormLogin onSubmit={Login}>
-      <h1>Insira suas informações abaixo</h1>
+      <h1>INSIRA SUAS INFORMAÇÕES ABAIXO</h1>
       <input value={name || ''} onChange={e => setName(e.target.value)} id='nome' type='text' placeholder='Digite seu nome'></input>
       <button type='submit'>Entrar</button>
     </FormLogin>
