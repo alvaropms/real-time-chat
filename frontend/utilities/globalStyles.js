@@ -1,3 +1,6 @@
+import styled from 'styled-components';
+
+export const StylesGlobal = styled.html`
 ::-webkit-scrollbar {
 width: 10px;
 }
@@ -23,3 +26,4 @@ background: #555;
     --darken-blue: rgb(0, 100, 167);
     --black: rgb(29, 28, 28);
 }
+`;

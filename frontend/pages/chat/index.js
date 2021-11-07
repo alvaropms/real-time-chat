@@ -1,6 +1,7 @@
 import { Messages, Container, Main, Form, StyledP, StyledButton, StyledInput } from "../../utilities/chat/styles"
 import {useState, useEffect } from "react"
 import connection from '../../utilities/connection'
+import { StylesGlobal } from "../../utilities/globalStyles"
 
 const Chat = () => {
     const [message, setMessage] = useState();
@@ -35,24 +36,26 @@ const Chat = () => {
 
     return(
         <>
-        <Main>
-            <h1>CHAT</h1>
-            <Container id='container'>
-                {messages.map((e, i) => (
-                    <Messages Position={checkId(e.id)} key={i}>
-                        <StyledP Color={checkId(e.id)}>
-                            <strong>{e.name}</strong>
-                            <span>{e.message}</span>
-                        </StyledP>
-                    </Messages>
-                    )  
-                )}
-            </Container>
-            <Form>
-                <StyledInput value={message || ''} onChange={ e => setMessage(e.target.value)} type='text' placeholder='Digite sua mensagem'></StyledInput>
-                <StyledButton type='submit' onClick={handleSendMessage}>Enviar</StyledButton>
-            </Form>
-        </Main>
+        <StylesGlobal>
+            <Main>
+                <h1>CHAT</h1>
+                <Container id='container'>
+                    {messages.map((e, i) => (
+                        <Messages Position={checkId(e.id)} key={i}>
+                            <StyledP Color={checkId(e.id)}>
+                                <strong>{e.name}</strong>
+                                <span>{e.message}</span>
+                            </StyledP>
+                        </Messages>
+                        )  
+                    )}
+                </Container>
+                <Form>
+                    <StyledInput value={message || ''} onChange={ e => setMessage(e.target.value)} type='text' placeholder='Digite sua mensagem'></StyledInput>
+                    <StyledButton type='submit' onClick={handleSendMessage}>Enviar</StyledButton>
+                </Form>
+            </Main>
+        </StylesGlobal>
         </>
     )
 }
