@@ -1,4 +1,4 @@
-import { FormLogin } from "./styles"
+import { FormLogin } from "../utilities/styles.js"
 import {useRouter} from "next/router"
 import { useState } from "react"
 import {getRandomInt} from '../utilities/utilities'
@@ -24,11 +24,11 @@ export default function Login() {
 
   return (
     <>
-    <FormLogin onSubmit={Login}>
-      <h1>INSIRA SUAS INFORMAÇÕES ABAIXO</h1>
-      <input value={name || ''} onChange={e => setName(e.target.value)} id='nome' type='text' placeholder='Digite seu nome'></input>
-      <button type='submit'>Entrar</button>
-    </FormLogin>
+      <FormLogin onSubmit={Login}>
+        <h1>INSIRA SUAS INFORMAÇÕES ABAIXO</h1>
+        <input value={name || ''} onChange={e => setName(e.target.value)} id='nome' type='text' placeholder='Digite seu nome'></input>
+        <button type='submit'>Entrar</button>
+      </FormLogin>
     </>   
   )
 }
