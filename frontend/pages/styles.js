@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
+const def = 0;
+export default def;
+
 export const FormLogin = styled.form`
     display: flex;
     flex-direction: column;

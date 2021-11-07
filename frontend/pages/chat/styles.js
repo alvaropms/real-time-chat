@@ -1,5 +1,8 @@
 import styled from 'styled-components'
 
+const def = 0;
+export default def;
+
 export const Messages = styled.div`
     display: flex;
     flex-direction: column;
