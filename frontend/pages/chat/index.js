@@ -9,6 +9,14 @@ const Chat = () => {
     useEffect(() => {
         listenMessage();
     }, [messages, sendMessage, listenMessage])
+
+    useEffect(() => {
+        setTimeout(function(){
+            var container = document.getElementById('container');
+            var heightPage = container.scrollHeight;
+            container.scrollTo(0 , heightPage);
+        }, 100);
+    }, [])
     
     async function handleSendMessage(e){
         e.preventDefault();
@@ -35,7 +43,6 @@ const Chat = () => {
 
     return(
         <>
-        <StylesGlobal>
             <Main>
                 <h1>CHAT</h1>
                 <Container id='container'>
@@ -54,7 +61,6 @@ const Chat = () => {
                     <StyledButton type='submit' onClick={handleSendMessage}>Enviar</StyledButton>
                 </Form>
             </Main>
-        </StylesGlobal>
         </>
     )
 }
