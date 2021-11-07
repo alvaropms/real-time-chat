@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import socketIOClient from "socket.io-client";
 
-const NEW_CHAT_MESSAGE_EVENT = "newMessage";
-const SOCKET_SERVER_URL = "http://localhost:4200";
+const NEW_CHAT_MESSAGE_EVENT = process.env.REACT_APP_NEW_CHAT_MESSAGE_EVENT || "newMessage";
+const SOCKET_SERVER_URL = process.env.REACT_APP_SOCKET_SERVER_URL || "https://realtc-back.herokuapp.com";
 
 function connection(){
   const [messages, setMessages] = useState([]);
@@ -19,7 +19,6 @@ function connection(){
       setMessages(msg);
       var container = document.getElementById('container');
       var heightPage = container.scrollHeight;
-      console.log(container.scrollTop, heightPage);
       if(container.scrollTop > heightPage - 700){
         container.scrollTo(0 , heightPage);
       }
