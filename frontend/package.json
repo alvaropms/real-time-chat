@@ -1,6 +1,9 @@
 {
   "name": "frontend",
   "private": true,
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "dev": "env-cmd -f .env.local next dev",
     "build": "env-cmd -f .env.local next build",
