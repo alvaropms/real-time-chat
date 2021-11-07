@@ -15,7 +15,7 @@ const Chat = () => {
             var container = document.getElementById('container');
             var heightPage = container.scrollHeight;
             container.scrollTo(0 , heightPage);
-        }, 100);
+        }, process.env.TIME_SCROLL);
     }, [])
     
     async function handleSendMessage(e){
