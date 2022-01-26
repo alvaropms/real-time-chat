@@ -19,7 +19,8 @@ function Connection(){
       setMessages(msg);
       var container = document.getElementById('container');
       var heightPage = container.scrollHeight;
-      if(container.scrollTop > heightPage - 700){
+      var scrollMax = heightPage - container.clientHeight;
+      if( scrollMax - container.scrollTop < 0.5 * container.clientHeight){
         container.scrollTo(0 , heightPage);
       }
     });
