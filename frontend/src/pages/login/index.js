@@ -1,11 +1,11 @@
-import { FormLogin } from "../utilities/styles.js"
-import {useRouter} from "next/router"
+import { FormLogin } from "./styles"
 import { useState } from "react"
-import {getRandomInt} from '../utilities/utilities'
+import {getRandomInt} from '../../utilities/index'
+import {useNavigate} from 'react-router-dom'
 
 export default function Login() {
+  const navigate = useNavigate();
   const [name, setName] = useState(undefined);
-  const router = useRouter();
 
   async function Login(e){
     e.preventDefault();
@@ -13,7 +13,7 @@ export default function Login() {
       if(name){
         localStorage.setItem('name', name);
         localStorage.setItem('id', getRandomInt(0,999));
-        router.push('/chat');
+        navigate('/chat');
       }else{
         alert('Digite as informações corretamente!');
       } 

@@ -1,21 +1,20 @@
 import styled from 'styled-components'
 
-
 export const Messages = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: ${ (props) => props.Position == 'end' ? "flex-end" : "flex-start"};
+    align-items: ${ (props) => props.Position === 'end' ? "flex-end" : "flex-start"};
 `;
 
 export const StyledP = styled.p`
-    background-color: ${ (props) => props.Color == 'end' ? "var(--darken-blue)" : "var(--darken-gray)"};
+    background-color: ${ (props) => props.Color === 'end' ? "var(--darken-blue)" : "var(--darken-gray)"};
     padding: 10px;
     border-radius: 20px;
     min-width: 15%;
     margin: 5px 0px;
     display: flex;
     flex-direction: column;
-    align-items: ${ (props) => props.Color == 'end' ? "flex-end" : "flex-start"};
+    align-items: ${ (props) => props.Color === 'end' ? "flex-end" : "flex-start"};
     word-break: break-all;
     color: var(--white);
 `;
@@ -32,7 +31,6 @@ export const Container = styled.div`
     background-color: var(--gray);
     -webkit-box-shadow: 0px 1px 22px -5px var(--black); 
     box-shadow: 0px 1px 22px -5px var(--black);
-
     @media (max-width: 500px){
         width: 90%;
     }
@@ -57,7 +55,6 @@ export const StyledInput = styled.input`
     font-size: 1rem;
     border: 2px solid var(--darken-blue);
     width: 80%;
-
     :focus{
         border-color: var(--blue);
         outline: none;

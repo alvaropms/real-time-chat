@@ -4,7 +4,7 @@ import socketIOClient from "socket.io-client";
 const NEW_CHAT_MESSAGE_EVENT = process.env.REACT_APP_NEW_CHAT_MESSAGE_EVENT || "newMessage";
 const SOCKET_SERVER_URL = process.env.REACT_APP_SOCKET_SERVER_URL || "https://realtc-back.herokuapp.com";
 
-function connection(){
+function Connection(){
   const [messages, setMessages] = useState([]);
   const socket = useRef();
 
@@ -33,4 +33,4 @@ function connection(){
   return { messages, sendMessage, listenMessage };
 };
 
-export default connection;
+export default Connection;
