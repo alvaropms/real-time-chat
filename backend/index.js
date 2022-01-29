@@ -20,14 +20,22 @@ app.get('/', (req, res) => {
 const NEW_CHAT_MESSAGE_EVENT = 'newMessage';
 
 var messages = [];
-const deleteMessages = () => {
-  messages = [];
-}
+
 const hoursInMiliseconds = 3.6 * Math.pow(10, 6);
+var canDelete = true;
+const deleteMessages = () => {
+  if(canDelete){
+    canDelete = false;
+    setInterval( () => {
+      messages = [];
+      canDelete = true;
+    }, 2 * hoursInMiliseconds)
+  }
+}
 
 io.on('connection', (socket) => {
   socket.emit(NEW_CHAT_MESSAGE_EVENT, messages);
-  setInterval( deleteMessages, 2 * hoursInMiliseconds);
+  deleteMessages();
 
     socket.on(NEW_CHAT_MESSAGE_EVENT, (msg) => {
       messages.push(msg);
