@@ -1,5 +1,5 @@
 import { Messages, Container, Main, Form, StyledP, StyledButton, StyledInput } from "./styles"
-import {useState, useEffect } from "react"
+import {useEffect, useState} from "react"
 import Connection from '../../connection'
 
 const Chat = () => {
@@ -7,9 +7,17 @@ const Chat = () => {
     const {messages, sendMessage, listenMessage} = Connection();
 
     useEffect(() => {
+        setTimeout(() => {
+            var container = document.getElementById('container');
+            var heightPage = container.scrollHeight;
+            container.scrollTo(0 , heightPage);
+        }, 1500);
+    }, [])
+
+    useEffect(() => {
         listenMessage();
-    }, [messages, sendMessage, listenMessage])
-    
+    }, [listenMessage])
+
     async function handleSendMessage(e){
         e.preventDefault();
         try {
