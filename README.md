@@ -1,6 +1,7 @@
 # :smile: Real Time Chat
 
 Aplicativo desenvolvido em React, usando as bibliotecas styled-components e socket.io.
+Você pode conferir o site na web clicando [aqui](https://realtc.herokuapp.com/)
 
 ## :desktop_computer: Sobre a aplicação
 
